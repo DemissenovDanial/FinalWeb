@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": ""
+    "start": "node ./back-end/server/server.js"
   },
   "keywords": [],
   "author": "",
