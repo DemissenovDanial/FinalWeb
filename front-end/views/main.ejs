@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="logout-button">
+            <a href="/"><button>Log out</button></a>
+        </div>
+        <div class="jokes-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/main?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes</a>
+        </div>
+        <div class="chuck-jokes-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/chuckJokes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes about Chuck Norris</a>
+        </div>
+        <div class="interesting-numbers-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/Numbers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Interesting numbers</a>
+        </div>
+        <div class="language">
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="carousel-container">
+            <div class="carousel">
+              <img src="/3.jpg" alt="Image 1" class="carousel-image">
+              <img src="/1.jpg" alt="Image 2" class="carousel-image">
+              <img src="/2.jpg" alt="Image 3" class="carousel-image">
+            </div>
+          </div>
+        <% if (jokes.length > 0) { %>
+            <h2>Jokes</h2>
+            <ul>
+                <% jokes.forEach(function(joke) { %>
+                    <li>
+                        <%= joke.content %><br>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+    </main>
+    <script src="/scripts/langMain.js"></script>
+</body>
+
+</html>

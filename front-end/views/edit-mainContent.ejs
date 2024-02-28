@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit joke</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <header>
+        <div class="logout-button">
+            <a href="/"><button>Log out</button></a>
+        </div>
+        <div class="jokes-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/main?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes</a>
+        </div>
+        <div class="chuck-jokes-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/chuckJokes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes about Chuck Norris</a>
+        </div>
+        <div class="interesting-numbers-link">
+            <a href="https://demissenov-danial-se-2206.onrender.com/Numbers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Interesting numbers</a>
+        </div>
+        <div class="language">
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
+        </div>
+    </header>
+    <h1>Edit joke</h1>
+    <main>
+        <form action="/admin/edit-joke/<%= joke._id %>" method="POST">
+            <input type="text" name="joke" placeholder="New joke" value="<%= joke.description.en %>">
+            <input type="text" name="joke" placeholder="New joke" value="<%= joke.description.ru %>">
+            <button id="1" class="button" type="submit">Update Joke</button>
+        </form>
+    </main>
+    <footer>
+        <p>2024 Demissenov Danial SE-2206</p>
+    </footer>
+    <script src="/scripts/langEdit-main.js"></script>
+</body>
+</html>

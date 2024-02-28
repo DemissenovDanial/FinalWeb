@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin page</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="logout-button">
+                <a href="/"><button>Log out</button></a>
+            </div>
+            <div class="jokes-link">
+                <a href="https://demissenov-danial-se-2206.onrender.com/main?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes</a>
+            </div>
+            <div class="chuck-jokes-link">
+                <a href="https://demissenov-danial-se-2206.onrender.com/chuckJokes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Jokes about Chuck Norris</a>
+            </div>
+            <div class="interesting-numbers-link">
+                <a href="https://demissenov-danial-se-2206.onrender.com/Numbers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4MTg5NSwiZXhwIjoxNzA5MDg1NDk1fQ.EAqxKGjeEAxc7jpnjxeaJkJjcM34DaY4iEmNPR9XNLQ">Interesting numbers</a>
+            </div>
+            <div class="language">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+        </header>
+        <% if (users.length > 0) { %>
+            <h2 id="titleUsers">Users</h2>
+            <ul>
+                <% users.forEach(function(user, index) { %>
+                    <li>
+                        <a id="username<%= index %>">Username:</a> <%= user.username %><br>
+                        <a id="createdAt<%= index %>">Created At:</a> <%= user.createdAt %><br>
+                        <a id="updatedAt<%= index %>">Updated At:</a> <%= user.updatedAt %><br>
+                        <a id="isAdmin<%= index %>">Is Admin:</a> <%= user.isAdmin %><br>
+                        <a href="/admin/delete-user/<%= user._id %>">delete</a>
+                        <a href="/admin/edit-user/<%= user._id %>">edit</a>
+                    </li>
+                <% }); %>                
+            </ul>
+        <% } %>
+        <form action="/admin/add-user" method="POST">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="checkbox" name="isAdmin" id="isAdmin">
+            <label for="isAdmin">Is Admin</label>
+            <button class="button" type="submit">add user</button>
+        </form>
+        <% if (jokes.length > 0) { %>
+            <h2 id="titleJokes">Jokes</h2>
+            <ul>
+                <% jokes.forEach(function(joke) { %>
+                    <li>
+                        <%= joke.content %><br>
+                        <a href="/admin/delete-joke/<%= joke._id %>">delete</a>
+                        <a href="/admin/edit-joke/<%= joke._id %>">edit</a>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+        <form action="/admin/add-joke" method="POST" enctype="multipart/form-data">
+            <input type="text" name="content" placeholder="joke content">
+            <input type="file" name="image1" accept="image/*">
+            <input type="file" name="image2" accept="image/*">
+            <input type="file" name="image3" accept="image/*"><br>
+            <input type="text" name="name.ru" placeholder="Name in Russian">
+            <input type="text" name="name.en" placeholder="Name in English">
+            <button class="button" type="submit">add joke</button><br>
+            <textarea name="description.ru" placeholder="Description in Russian"></textarea>
+            <textarea name="description.en" placeholder="Description in English"></textarea>
+        </form>
+    </main>
+    <script src="/scripts/langAdmin.js"></script>
+</body>
+<footer>
+    <h1>Demissenov Danial SE-2206</h1>
+</footer>
+</html>

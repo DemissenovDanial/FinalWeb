@@ -1,0 +1,97 @@
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6d8d8;
+    color: #333333;
+    background-size: cover;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  header a:hover {
+    background-color: #555;
+  }
+  
+  .logout-button button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button button:hover {
+    background-color: #c82333;
+  }
+  
+  .jokes-link {
+    margin-left: 10px;
+  }
+  
+  .interesting-numbers-link {
+    margin-left: 10px;
+  }
+
+  .language {
+    margin-left: auto;
+  }
+
+  .language select {
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #e79e9e;
+    background-color: #ffffff;
+  }
+
+  .language select option:checked {
+    background-color: #007bff;
+    color: #fff;
+ }
+
+ .carousel {
+  display: flex;
+}
+
+.carousel-image {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-container {
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+footer {
+  background-color: #333; 
+  color: white; 
+  padding: 0px;
+  text-align: center; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+}
