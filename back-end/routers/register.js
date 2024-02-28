@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, password: hashedPassword });
         await newUser.save();
-        res.send('Registration successful');
+        res.render('https://demissenov-danial-se-2206.onrender.com/');
     } catch (err) {
         console.error('Error:', err);
         res.status(500).send('Internal Server Error');
