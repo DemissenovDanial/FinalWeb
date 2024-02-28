@@ -32,3 +32,7 @@ node ./back-end/server/server.js
 6) **"path": "^0.12.7"**
 7) **"jsonwebtoken": "^9.0.2"**
 8) **"multer": "^1.4.5-lts.1"**
+
+### Admin:
+Login: Danial
+Password: admin
