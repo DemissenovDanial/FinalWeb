@@ -42,7 +42,10 @@
             <ul>
                 <% jokes.forEach(function(joke) { %>
                     <li>
-                        <%= joke.content %><br>
+                        <%= joke.name.en %><br>
+                        <%= joke.name.ru %><br>
+                        <%= joke.description.en %><br>
+                        <%= joke.description.ru %><br>
                     </li>
                 <% }); %>
             </ul>
