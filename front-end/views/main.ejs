@@ -31,26 +31,27 @@
     </header>
     <main>
         <div class="carousel-container">
-            <div class="carousel">
-              <img src="/3.jpg" alt="Image 1" class="carousel-image">
-              <img src="/1.jpg" alt="Image 2" class="carousel-image">
-              <img src="/2.jpg" alt="Image 3" class="carousel-image">
+            <% jokes.forEach(function(joke, index) { %>
+            <div class="product">
+                <div class="carousel" id="carousel_<%= index %>">
+                    <div class="carousel-item fade">
+                        <img src="/1.jpg" alt="Image" class="carousel-image">
+                    </div>
+                    <div class="carousel-item fade">
+                        <img src="/2.jpg" alt="Image" class="carousel-image">
+                    </div>
+                    <div class="carousel-item fade">
+                        <img src="/3.jpg" alt="Image" class="carousel-image">
+                    </div>
+                    <a class="prev" data-index="<%= index %>" onclick="plusSlides(-1, this)">&#10094;</a>
+                    <a class="next" data-index="<%= index %>" onclick="plusSlides(1, this)">&#10095;</a>
+                </div>
+                <h3><%= joke.name.ru %></h3>
+                <p><%= joke.description.ru %></p>
             </div>
-          </div>
-        <% if (jokes.length > 0) { %>
-            <h2>Jokes</h2>
-            <ul>
-                <% jokes.forEach(function(joke) { %>
-                    <li>
-                        <%= joke.name.en %><br>
-                        <%= joke.name.ru %><br>
-                        <%= joke.description.en %><br>
-                        <%= joke.description.ru %><br>
-                    </li>
-                <% }); %>
-            </ul>
-        <% } %>
-    </main>
+            <% }); %>
+        </div>
+    </main>    
     <script src="/scripts/langMain.js"></script>
 </body>
 

@@ -28,7 +28,7 @@ app.use(editMainContentRouter);
 app.use(numbersRouter);
 app.use(numbersFuncRouter);
 app.use(chuckJokesRouter);
-
+app.use(express.static(path.join(__dirname, '..', '..', 'uploads')));
 app.get('/', (req, res) => {
     res.render('login');
 });

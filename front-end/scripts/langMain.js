@@ -22,28 +22,30 @@ function changeLanguage(lang) {
         jokesLink.textContent = 'Шутки';
         chuckJokesLink.textContent = 'Шутки о Чаке Норрисе';
         interestingNumbersLink.textContent = 'Интересные числа';
-        jokes.textContent = 'Шутки';
     } else {
         logoutButton.textContent = 'Log out';
         jokesLink.textContent = 'Jokes';
         chuckJokesLink.textContent = 'Jokes about Chuck Norris';
         interestingNumbersLink.textContent = 'Interesting numbers';
-        jokes.textContent = 'Jokes';
     }
 }
 
-function nextSlide() {
-    counter++;
-    console.log(carouselImages);
-    if (counter >= carouselImages.length) {
-        counter = 0;
+function plusSlides(n, button) {
+    var index = button.getAttribute('data-index');
+    var carouselId = 'carousel_' + index;
+    var carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+
+    var slides = carousel.querySelectorAll('.carousel-item');
+    var currentIndex = -1;
+    for (var i = 0; i < slides.length; i++) {
+        if (!slides[i].classList.contains('hide')) {
+            currentIndex = i;
+            break;
+        }
     }
-    updateCarousel();
-}
 
-function updateCarousel() {
-    const offset = -50 * counter;
-    document.querySelector('.carousel').style.transform = `translateX(${offset}vw)`;
+    var nextIndex = (currentIndex + n + slides.length) % slides.length;
+    slides[currentIndex].classList.add('hide');
+    slides[nextIndex].classList.remove('hide');
 }
-
-setInterval(nextSlide, 5000);

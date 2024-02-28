@@ -60,9 +60,10 @@ router.post('/admin/add-joke', (req, res) => {
                     en: descriptionEn,
                     ru: descriptionRu
                 },
-                imagePaths
+                images: imagePaths
             });
-            await newJoke.save();            
+            await newJoke.save();       
+            console.log('New joke saved successfully:', newJoke);     
             const redirectUrl = 'https://demissenov-danial-se-2206.onrender.com/admin?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4NDEyOCwiZXhwIjoxNzA5MDg3NzI4fQ.YnpcBbBVnWcaTXCxYc1ZXN20jDX2Qb05CiBzDUhObGA';
             res.redirect(redirectUrl);
         } catch (error) {
@@ -84,10 +85,16 @@ router.get('/admin/edit-joke/:id', async (req, res) => {
 
 router.post('/admin/edit-joke/:id', async (req, res) => {
     try {
-        const { description, imagePaths } = req.body;
+        const { 'name.ru': nameRu, 'name.en': nameEn, 'description.ru': descriptionRu, 'description.en': descriptionEn } = req.body;
         const updatedJoke = {
-            description,
-            imagePaths
+            name: {
+                en: nameEn,
+                ru: nameRu
+            },
+            description: {
+                en: descriptionEn,
+                ru: descriptionRu
+            }
         };
         await Jokes.findByIdAndUpdate(req.params.id, updatedJoke);
         const redirectUrl = 'https://demissenov-danial-se-2206.onrender.com/admin?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4NDEyOCwiZXhwIjoxNzA5MDg3NzI4fQ.YnpcBbBVnWcaTXCxYc1ZXN20jDX2Qb05CiBzDUhObGA';

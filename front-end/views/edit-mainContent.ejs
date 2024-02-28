@@ -30,9 +30,15 @@
     <h1>Edit joke</h1>
     <main>
         <form action="/admin/edit-joke/<%= joke._id %>" method="POST">
-            <input type="text" name="joke" placeholder="New joke" value="<%= joke.description.en %>">
-            <input type="text" name="joke" placeholder="New joke" value="<%= joke.description.ru %>">
-            <button id="1" class="button" type="submit">Update Joke</button>
+            <label for="nameEn">New English name:</label>
+            <input type="text" id="nameEn" name="name.en" placeholder="New English name" value="<%= joke.name.en %>">
+            <label for="nameRu">New Russian name:</label>
+            <input type="text" id="nameRu" name="name.ru" placeholder="New Russian name" value="<%= joke.name.ru %>">
+            <label for="descriptionEn">New English description:</label>
+            <input type="text" id="descriptionEn" name="description.en" placeholder="New English description" value="<%= joke.description.en %>">
+            <label for="descriptionRu">New Russian description:</label>
+            <input type="text" id="descriptionRu" name="description.ru" placeholder="New Russian description" value="<%= joke.description.ru %>">
+            <button class="button" type="submit">Update Joke</button>
         </form>
     </main>
     <script src="/scripts/langEdit-main.js"></script>
