@@ -63,7 +63,7 @@ router.post('/admin/add-joke', (req, res) => {
                 imagePaths
             });
             await newJoke.save();            
-            const redirectUrl = 'http://localhost:3000/admin?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4NDEyOCwiZXhwIjoxNzA5MDg3NzI4fQ.YnpcBbBVnWcaTXCxYc1ZXN20jDX2Qb05CiBzDUhObGA';
+            const redirectUrl = 'https://demissenov-danial-se-2206.onrender.com/admin?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhbmlhbCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwOTA4NDEyOCwiZXhwIjoxNzA5MDg3NzI4fQ.YnpcBbBVnWcaTXCxYc1ZXN20jDX2Qb05CiBzDUhObGA';
             res.redirect(redirectUrl);
         } catch (error) {
             console.error('Error:', error);
