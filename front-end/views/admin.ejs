@@ -54,8 +54,11 @@
             <h2 id="titleJokes">Jokes</h2>
             <ul>
                 <% jokes.forEach(function(joke) { %>
-                    <li>
-                        <%= joke.content %><br>
+                    <li>                        
+                        <%= joke.name.en %><br>
+                        <%= joke.name.ru %><br>
+                        <%= joke.description.en %><br>
+                        <%= joke.description.ru %><br>
                         <a href="/admin/delete-joke/<%= joke._id %>">delete</a>
                         <a href="/admin/edit-joke/<%= joke._id %>">edit</a>
                     </li>
